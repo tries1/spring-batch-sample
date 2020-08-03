@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: local
+  batch:
+    job:
+      names: ${job.name:NONE} #job.name값이 없으면 NONE을 할당, NONE이 할당되면 어떤 배치도 실행하지 않겠다는 의미
 
 ---
 spring:
