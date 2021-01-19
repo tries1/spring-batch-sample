@@ -1,14 +1,13 @@
 package com.spring.smaple.batch.entity;
 
+import java.time.format.DateTimeFormatter;
+
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,23 +18,16 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @Entity
-public class Student {
+@Table(name = "users")
+public class User {
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "teacher_id", foreignKey = @ForeignKey(name = "fk_student_teacher"))
-    private Teacher teacher;
-
-    @Builder
-    public Student(String name) {
+    public User(String name) {
         this.name = name;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
     }
 }

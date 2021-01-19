@@ -22,7 +22,7 @@ spring:
   profiles: mysql
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://localhost:3306/batchdb
-      username: batch_user
-      password: batch_user
+      jdbc-url: jdbc:mysql://localhost:3306/testdb
+      username: glenn
+      password: glenn1234
       driver-class-name: com.mysql.jdbc.Driver
